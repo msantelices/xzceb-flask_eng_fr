@@ -12,6 +12,7 @@ class TestEnglishToFrench(unittest.TestCase):
         self.assertEqual(english_to_french("Hello"), "Bonjour")
         self.assertEqual(english_to_french("Hello world"), "Bonjour le monde")
         self.assertEqual(english_to_french("This is a test"), "Il s'agit d'un test")
+        self.assertNotEqual(english_to_french('Hello world'), 'Hola mundo')
         with self.assertRaises(ValueError):
             english_to_french(None)
 
@@ -20,6 +21,7 @@ class TestFrenchToEnglish(unittest.TestCase):
         self.assertEqual(french_to_english("Bonjour"), "Hello")
         self.assertEqual(french_to_english("Bonjour le monde"), 'Hello World')
         self.assertEqual(french_to_english("Il s'agit d'un test"), 'This is a test')
+        self.assertNotEqual(french_to_english('Bonjour le monde'), 'Hola mundo')
         with self.assertRaises(ValueError):
             french_to_english(None)
 
